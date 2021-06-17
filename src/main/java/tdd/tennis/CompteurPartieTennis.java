@@ -35,6 +35,9 @@ public class CompteurPartieTennis {
 				}else {
 					if(partie.getScoreJoueur2().isAvantage()) {
 						partie.getScoreJoueur2().setAvantage(false);
+					}else {
+						partie.getScoreJoueur1().setJeux(partie.getScoreJoueur1().getJeux()+1);
+						reinitialiseScoreEtAvantage(partie);
 					}
 				}		
 			}else {
@@ -47,13 +50,27 @@ public class CompteurPartieTennis {
 				}else {
 					if(partie.getScoreJoueur1().isAvantage()) {
 						partie.getScoreJoueur1().setAvantage(false);
-					}
+					}else {
+						partie.getScoreJoueur2().setJeux(partie.getScoreJoueur2().getJeux()+1);
+						reinitialiseScoreEtAvantage(partie);
+					}	
 				}		
 			}else {
 				partie.getScoreJoueur2().marqueUnPoint();
 			}
 		}
 		return partie;
+	}
+	
+	/**
+	 * Cette méthode réinitialise les scores à 0 des joueurs et les avantages à false
+	 * @param partie : partie qui est jouée
+	 */
+	public void reinitialiseScoreEtAvantage(PartieDeTennis partie) {
+		partie.getScoreJoueur1().setPoints(0);
+		partie.getScoreJoueur2().setPoints(0);
+		partie.getScoreJoueur1().setAvantage(false);
+		partie.getScoreJoueur2().setAvantage(false);
 	}
 	
 	/**

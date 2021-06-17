@@ -3,6 +3,7 @@ package tdd.tennis;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +19,18 @@ class CompteurPartieTennisTest {
 	@BeforeAll
 	public static void initialisation_nouvellePartie() {
 		nouvellePartie = compteurPartieTennis.nouvellePartie(joueur1,joueur2);
+	}
+	
+	@BeforeEach
+	public void reinitialisationPartie() {
+		nouvellePartie.getScoreJoueur1().setAvantage(false);
+		nouvellePartie.getScoreJoueur2().setAvantage(false);
+		nouvellePartie.getScoreJoueur1().setJeux(0);
+		nouvellePartie.getScoreJoueur2().setJeux(0);
+		nouvellePartie.getScoreJoueur1().setMatch(0);
+		nouvellePartie.getScoreJoueur2().setMatch(0);
+		nouvellePartie.getScoreJoueur1().setPoints(0);
+		nouvellePartie.getScoreJoueur2().setPoints(0);
 	}
 	
 	@Test
@@ -95,7 +108,6 @@ class CompteurPartieTennisTest {
 		nouvellePartie.getScoreJoueur2().setPoints(40);
 		compteurPartieTennis.joueurGagne(nouvellePartie, joueur1);
 		assertEquals(true,nouvellePartie.getScoreJoueur1().isAvantage());
-		nouvellePartie.getScoreJoueur1().setAvantage(false);
 	}
 	
 	@Test
@@ -105,7 +117,6 @@ class CompteurPartieTennisTest {
 		nouvellePartie.getScoreJoueur2().setPoints(40);
 		compteurPartieTennis.joueurGagne(nouvellePartie, joueur2);
 		assertEquals(true,nouvellePartie.getScoreJoueur2().isAvantage());
-		nouvellePartie.getScoreJoueur2().setAvantage(false);
 	}
 	
 	@Test
