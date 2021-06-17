@@ -13,9 +13,10 @@ public class PartieDeTennis {
 	private ScoreTennis scoreJoueur1;
 	private ScoreTennis scoreJoueur2;
 	
-	public PartieDeTennis(JoueurDeTennis joueur1) {
+	public PartieDeTennis(JoueurDeTennis joueur1, JoueurDeTennis joueur2) {
 		super();
 		this.joueur1 = joueur1;
+		this.joueur2 = joueur2;
 	}
 	
 	public JoueurDeTennis getJoueur1() {
