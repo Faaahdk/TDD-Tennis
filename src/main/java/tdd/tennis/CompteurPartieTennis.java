@@ -29,10 +29,57 @@ public class CompteurPartieTennis {
 	 */
 	public PartieDeTennis joueurGagne(PartieDeTennis partie, JoueurDeTennis gagnant) {
 		if(gagnant == partie.getJoueur1()) {
-			partie.getScoreJoueur1().marqueUnPoint();
+			if(egalitePoints(partie,40)) {
+				if(aucunAvantage(partie)) {
+					partie.getScoreJoueur1().setAvantage(true);
+				}else {
+					if(partie.getScoreJoueur2().isAvantage()) {
+						partie.getScoreJoueur2().setAvantage(false);
+					}
+				}		
+			}else {
+				partie.getScoreJoueur1().marqueUnPoint();
+			}
 		}else if (gagnant == partie.getJoueur2()) {
-			partie.getScoreJoueur2().marqueUnPoint();
+			if(egalitePoints(partie,40)) {
+				if(aucunAvantage(partie)) {
+					partie.getScoreJoueur2().setAvantage(true);
+				}else {
+					if(partie.getScoreJoueur1().isAvantage()) {
+						partie.getScoreJoueur1().setAvantage(false);
+					}
+				}		
+			}else {
+				partie.getScoreJoueur2().marqueUnPoint();
+			}
 		}
 		return partie;
+	}
+	
+	/**
+	 * Cette méthode vérifie si les 2 joueurs sont à égalité en nombre de points et que le nombre de points vaut 40
+	 * @param partie : partie qui est jouée
+	 * @param nbPoints : nombre de points où l'égalité est testée
+	 * @return True si les 2 joueurs sont à égalité, sinon false
+	 */
+	public boolean egalitePoints(PartieDeTennis partie, int nbPoints) {
+		boolean result = false;
+		if(partie.getScoreJoueur1().getPoints() == partie.getScoreJoueur2().getPoints() && partie.getScoreJoueur1().getPoints() == nbPoints) {
+			result = true;
+		}
+		return result;
+	}
+	
+	/**
+	 * Cette méthode vérifie si les 2 joueurs n'ont pas d'avantage
+	 * @param partie qui est jouée
+	 * @return True si les 2 joueurs n'ont pas d'avantage, sinon false
+	 */
+	public boolean aucunAvantage(PartieDeTennis partie) {
+		boolean result = false;
+		if(!partie.getScoreJoueur1().isAvantage() && !partie.getScoreJoueur2().isAvantage()) {
+			result = true;
+		}
+		return result;
 	}
 }
