@@ -15,8 +15,7 @@ public class CompteurPartieTennis {
 	 * @return une nouvelle partie.
 	 */
 	public PartieDeTennis nouvellePartie(JoueurDeTennis joueur1, JoueurDeTennis joueur2) {
-		PartieDeTennis nouvellePartie = new PartieDeTennis();
-		nouvellePartie.setJoueur1(joueur1);
+		PartieDeTennis nouvellePartie = new PartieDeTennis(joueur1);
 		return nouvellePartie;
 	}
 	
