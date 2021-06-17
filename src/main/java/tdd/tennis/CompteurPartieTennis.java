@@ -15,8 +15,8 @@ public class CompteurPartieTennis {
 	 * @return une nouvelle partie.
 	 */
 	public PartieDeTennis nouvellePartie(JoueurDeTennis joueur1, JoueurDeTennis joueur2) {
-		ScoreTennis scoreJ1 = new ScoreTennis(0,0,0,0);
-		ScoreTennis scoreJ2 = new ScoreTennis(0,0,0,0);
+		ScoreTennis scoreJ1 = new ScoreTennis(0,0,0,0,false);
+		ScoreTennis scoreJ2 = new ScoreTennis(0,0,0,0,false);
 		PartieDeTennis nouvellePartie = new PartieDeTennis(joueur1,joueur2,scoreJ1,scoreJ2);
 		return nouvellePartie;
 	}
@@ -28,6 +28,11 @@ public class CompteurPartieTennis {
 	 * @return La partie avec les nouveaux scores.
 	 */
 	public PartieDeTennis joueurGagne(PartieDeTennis partie, JoueurDeTennis gagnant) {
+		if(gagnant == partie.getJoueur1()) {
+			partie.getScoreJoueur1().marqueUnPoint();
+		}else if (gagnant == partie.getJoueur2()) {
+			partie.getScoreJoueur2().marqueUnPoint();
+		}
 		return partie;
 	}
 }
