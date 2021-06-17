@@ -10,13 +10,15 @@ public class ScoreTennis {
 	private int jeux;
 	private int set;
 	private int match;
+	private boolean avantage;
 	
-	public ScoreTennis(int points, int jeux, int set, int match) {
+	public ScoreTennis(int points, int jeux, int set, int match, boolean avantage) {
 		super();
 		this.points = points;
 		this.jeux = jeux;
 		this.set = set;
 		this.match = match;
+		this.avantage = avantage;
 	}
 	
 	public int getPoints() {
@@ -51,6 +53,14 @@ public class ScoreTennis {
 		this.match = match;
 	}
 	
+	public boolean isAvantage() {
+		return avantage;
+	}
+
+	public void setAvantage(boolean avantage) {
+		this.avantage = avantage;
+	}
+
 	public void marqueUnPoint() {
 		if(this.points != 40) {
 			this.points += 15;
