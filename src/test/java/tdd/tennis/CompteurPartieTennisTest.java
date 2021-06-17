@@ -41,7 +41,7 @@ class CompteurPartieTennisTest {
 	}
 	
 	@Test
-	@DisplayName("Au début de la partie, le joueur2 a 0 jeux gagnés")
+	@DisplayName("Au début de la partie, le joueur1 a 0 jeux gagnés")
 	public void test_nouvellePartie_zeroJeuxGagnesJoueur1() {
 		PartieDeTennis nouvellePartie = compteurPartieTennis.nouvellePartie(joueur1,joueur2);
 		assertEquals(0,nouvellePartie.getScoreJoueur1().getJeux());	
