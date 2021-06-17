@@ -14,9 +14,16 @@ class CompteurPartieTennisTest {
 	
 	@Test
 	@DisplayName("Un utilisateur peut créer une nouvelle partie en choissisant le joueur1")
-	public void test_nouvellePartie_retournePartieDeTennis() {
+	public void test_nouvellePartie_choixJoueur1() {
 		PartieDeTennis nouvellePartie = compteurPartieTennis.nouvellePartie(joueur1,joueur2);
 		assertEquals(joueur1,nouvellePartie.getJoueur1());	
+	}
+	
+	@Test
+	@DisplayName("Un utilisateur peut créer une nouvelle partie en choissisant le joueur2")
+	public void test_nouvellePartie_choixJoueur2() {
+		PartieDeTennis nouvellePartie = compteurPartieTennis.nouvellePartie(joueur1,joueur2);
+		assertEquals(joueur2,nouvellePartie.getJoueur2());	
 	}
 
 }
