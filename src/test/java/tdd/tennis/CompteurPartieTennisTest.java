@@ -70,9 +70,17 @@ class CompteurPartieTennisTest {
 	
 	@Test
 	@DisplayName("L'utilisateur peut notifier que le joueur1 a gagné un point")
-	public void test_joueurGagneUnPoint() {
+	public void test_joueur1GagneUnPoint() {
 		nouvellePartie = compteurPartieTennis.joueurGagne(nouvellePartie,joueur1);
 		nouvellePartie.getScoreJoueur1().marqueUnPoint();
 		assertEquals(15,nouvellePartie.getScoreJoueur1().getPoints());	
+	}
+	
+	@Test
+	@DisplayName("L'utilisateur peut notifier que le joueur2 a gagné un point")
+	public void test_joueur2GagneUnPoint() {
+		nouvellePartie = compteurPartieTennis.joueurGagne(nouvellePartie,joueur2);
+		nouvellePartie.getScoreJoueur2().marqueUnPoint();
+		assertEquals(15,nouvellePartie.getScoreJoueur2().getPoints());	
 	}
 }
