@@ -16,6 +16,7 @@ public class CompteurPartieTennis {
 	 */
 	public PartieDeTennis nouvellePartie(JoueurDeTennis joueur1, JoueurDeTennis joueur2) {
 		PartieDeTennis nouvellePartie = new PartieDeTennis(joueur1);
+		nouvellePartie.setJoueur2(joueur2);
 		return nouvellePartie;
 	}
 	
