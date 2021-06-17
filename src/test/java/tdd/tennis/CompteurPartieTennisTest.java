@@ -21,6 +21,12 @@ class CompteurPartieTennisTest {
 	}
 	
 	@Test
+	@DisplayName("Un utilisateur peut créer une nouvelle partie")
+	public void test_creationPartieAvec2Joueurs() {
+		assertNotNull(nouvellePartie);
+	}
+	
+	@Test
 	@DisplayName("Un utilisateur peut créer une nouvelle partie en choissisant le joueur1")
 	public void test_nouvellePartie_choixJoueur1() {
 		assertEquals(joueur1,nouvellePartie.getJoueur1());	
