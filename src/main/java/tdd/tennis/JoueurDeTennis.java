@@ -11,8 +11,6 @@ public class JoueurDeTennis {
 	private String nom;
 	private String prenom;
 	
-	
-	
 	public JoueurDeTennis() {
 		this("","");
 	}

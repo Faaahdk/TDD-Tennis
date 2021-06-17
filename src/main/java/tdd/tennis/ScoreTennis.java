@@ -49,5 +49,13 @@ public class ScoreTennis {
 	
 	public void setMatch(int match) {
 		this.match = match;
-	}	
+	}
+	
+	public void marqueUnPoint() {
+		if(this.points != 40) {
+			this.points += 15;
+		}else {
+			this.points = 0;
+		}
+	}
 }
