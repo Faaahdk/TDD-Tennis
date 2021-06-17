@@ -55,4 +55,16 @@ class CompteurPartieTennisTest {
 	public void test_nouvellePartie_zeroJeuxGagnesJoueur2() {
 		assertEquals(0,nouvellePartie.getScoreJoueur2().getJeux());	
 	}
+	
+	@Test
+	@DisplayName("Au début de la partie, le joueur1 a 0 sets gagnés")
+	public void test_nouvellePartie_zeroSetsGagnesJoueur1() {
+		assertEquals(0,nouvellePartie.getScoreJoueur1().getSet());	
+	}
+
+	@Test
+	@DisplayName("Au début de la partie, le joueur2 a 0 sets gagnés")
+	public void test_nouvellePartie_zeroSetsGagnesJoueur2() {
+		assertEquals(0,nouvellePartie.getScoreJoueur2().getSet());	
+	}
 }
