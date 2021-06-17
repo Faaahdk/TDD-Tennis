@@ -25,5 +25,12 @@ class CompteurPartieTennisTest {
 		PartieDeTennis nouvellePartie = compteurPartieTennis.nouvellePartie(joueur1,joueur2);
 		assertEquals(joueur2,nouvellePartie.getJoueur2());	
 	}
+	
+	@Test
+	@DisplayName("Au début de la partie, le joueur1 a 0 point")
+	public void test_nouvellePartie_zeroPointJoueur1() {
+		PartieDeTennis nouvellePartie = compteurPartieTennis.nouvellePartie(joueur1,joueur2);
+		assertEquals(0,nouvellePartie.getScoreJoueur1());	
+	}
 
 }
