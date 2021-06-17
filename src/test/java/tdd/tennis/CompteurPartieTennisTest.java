@@ -87,4 +87,10 @@ class CompteurPartieTennisTest {
 		compteurPartieTennis.joueurGagne(nouvellePartie, joueur2);
 		assertEquals(15,nouvellePartie.getScoreJoueur2().getPoints());	
 	}
+	
+	@Test
+	@DisplayName("Si les deux joueurs sont à égalité à 40 points, si aucun joueur a un avantage, le joueur1 qui gagne le point gagne un avantage")
+	public void test_joueur1MarquePointEnGagnantUnAvantage() {
+		assertEquals(true,nouvellePartie.getScoreJoueur1().isAvantage());
+	}
 }
