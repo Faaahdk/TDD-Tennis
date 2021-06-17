@@ -105,5 +105,27 @@ class CompteurPartieTennisTest {
 		nouvellePartie.getScoreJoueur2().setPoints(40);
 		compteurPartieTennis.joueurGagne(nouvellePartie, joueur2);
 		assertEquals(true,nouvellePartie.getScoreJoueur2().isAvantage());
+		nouvellePartie.getScoreJoueur2().setAvantage(false);
 	}
+	
+	@Test
+	@DisplayName("Si les deux joueurs sont à égalité à 40 points, le joueur1 qui gagne le point et qui a un avantage, gagne un jeu")
+	public void test_joueur1MarquePointAvecAvantageGagneUnJeu() {
+		nouvellePartie.getScoreJoueur1().setPoints(40);
+		nouvellePartie.getScoreJoueur1().setAvantage(true);
+		nouvellePartie.getScoreJoueur2().setPoints(40);
+		compteurPartieTennis.joueurGagne(nouvellePartie, joueur1);
+		assertEquals(1,nouvellePartie.getScoreJoueur1().getJeux());
+	}
+	
+	@Test
+	@DisplayName("Si les deux joueurs sont à égalité à 40 points, le joueur2 qui gagne le point et qui a un avantage, gagne un jeu")
+	public void test_joueur2MarquePointAvecAvantageGagneUnJeu() {
+		nouvellePartie.getScoreJoueur1().setPoints(40);
+		nouvellePartie.getScoreJoueur2().setAvantage(true);
+		nouvellePartie.getScoreJoueur2().setPoints(40);
+		compteurPartieTennis.joueurGagne(nouvellePartie, joueur2);
+		assertEquals(1,nouvellePartie.getScoreJoueur2().getJeux());
+	}
+	
 }
